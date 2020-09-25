@@ -44,25 +44,21 @@ canvas{
 }
 
 .intro-text{
-  position: absolute;
-  top: 48px;
-  width: 100%;
-  padding-left: 15px;
-  color: white;
   font-size: 50px;
-  text-indent: 4px;
 }
 
-.sub-text{
-  position: absolute;
-  top: 130px;
-  width: 100%;
-  padding-left: 15px;
-  color: white;
+.basic-text{
   font-size: 25px;
-  text-indent: 4px;
 }
 
+
+.content {
+  position: absolute;
+  width: 100%;
+  top: 40%;
+  color: white;
+
+}
 
 #particles-js{
   width: 100%;
