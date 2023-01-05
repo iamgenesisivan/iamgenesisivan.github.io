@@ -1,1 +1,2 @@
-# iamgenesisivan.github.io
+- Hi, I’m @iamgenesisivan
+- I’m more into gaming sometimes gaming
