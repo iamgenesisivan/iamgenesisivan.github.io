@@ -1,2 +1,2 @@
 - Hi, I’m @iamgenesisivan
-- I’m more into gaming sometimes gaming
+- I’m more into gaming sometimes coding. Haha!
