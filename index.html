@@ -6,6 +6,23 @@
   	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
   	<link rel="stylesheet" type="text/css" href="assets/css/index.css">
 </head>
+<script>
+	var koreBotChatConfig = {
+	  clientId: "cs-874bd729-4779-54f7-b047-a32a33e28a47",
+	  clientSecret: "OW7ShBqMzdJP2nV8u9BhtT7FZ3/MvbLRN2/VMpsJjvw=",
+	  botInfo: {
+		name: "Xyrine",
+		_id: "st-a4ce7a05-9d45-53e4-a405-75d6fc3714b2"
+	  },
+	  koreAPIUrl: "https://bots.kore.ai/",
+	  botOptions: {
+		embed: true,
+		isSendButton: true
+	  }
+	};
+  </script>
+  <script src="assets/js/kore-bot-sdk/kore-bot-sdk-client.js"></script>
+  <!-- <script src="https://cdn.kore.ai/sdk/js/kore-bot-sdk-client.js"></script> -->
 <body>
 	<div class="content">
 		<div class="col-lg-12">
@@ -31,6 +48,18 @@
 <script src="assets/js/particles.js"></script>
 <script src="assets/js/typetext.js"></script>
 <script src="assets/js/app.js"></script>
+<script type="text/javascript">
+	var botID = "st-a4ce7a05-9d45-53e4-a405-75d6fc3714b2";
+	var botUrl = "https://platform.kore.ai/xo-webclient/3d055f1f79ab464ba25764a15c669f6ba65d5917939c46e6a352ea3add22c7c5sta4?lang=en";
+	(function(d, m) {
+	  var s = d.createElement("script");
+	  s.type = "text/javascript";
+	  s.async = true;
+	  s.src = botUrl + "/botwidget.js";
+	  var h = d.getElementsByTagName("script")[0];
+	  h.parentNode.insertBefore(s, h);
+	})(document);
+  </script>
 
 </html>
 
