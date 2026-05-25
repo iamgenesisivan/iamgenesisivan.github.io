@@ -1,4 +1,4 @@
-var content = "Hi, I'm Genesis Ivan Aquino."
+var content = "Hi, I'm Genesis Ivan Pogi."
 var ele = '<span>' + content.split('').join('</span><span>') + '</span>';
 $(ele).hide().appendTo('.intro-text').each(function (i) {
     $(this).delay(100 * i)
