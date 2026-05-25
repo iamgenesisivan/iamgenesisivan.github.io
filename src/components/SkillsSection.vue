@@ -54,13 +54,13 @@ export default {
           name: 'Frontend',
           icon: '🎨',
           color: '#79c0ff',
-          skills: ['Vue.js', 'JavaScript', 'HTML5', 'CSS3', 'Tailwind CSS'],
+          skills: ['Vue.js', 'JavaScript', 'HTML5', 'CSS3', 'Tailwind CSS', 'Bootstrap', 'jQuery'],
         },
         {
           name: 'AI & Automation',
           icon: '🤖',
           color: '#a5d6ff',
-          skills: ['OpenAI API', 'Ollama', 'LLaMA', 'AI Chatbot Systems', 'Prompt Engineering'],
+          skills: ['OpenAI API', 'Ollama', 'LLaMA', 'Deepseek', 'Claude'],
         },
         {
           name: 'Databases',
@@ -72,7 +72,7 @@ export default {
           name: 'DevOps & Infra',
           icon: '🐳',
           color: '#f78166',
-          skills: ['Docker', 'Nginx', 'Linux', 'Deployment Pipelines', 'Server Configuration'],
+          skills: ['Docker', 'Nginx', 'Linux',],
         },
         {
           name: 'Other',
