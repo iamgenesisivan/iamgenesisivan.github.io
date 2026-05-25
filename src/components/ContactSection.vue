@@ -51,8 +51,8 @@ export default {
     return {
       links: [
         { icon: '✉️', label: 'Email', value: 'aquino.igenesis@gmail.com', href: 'mailto:aquino.igenesis@gmail.com' },
-        { icon: '🐙', label: 'GitHub', value: 'github.com/genesisaquino', href: 'https://github.com/genesisaquino' },
-        { icon: '💼', label: 'LinkedIn', value: 'linkedin.com/in/genesisaquino', href: 'https://linkedin.com/in/genesisaquino' },
+        { icon: '🐙', label: 'GitHub', value: 'github.com/iamgenesisivan', href: 'https://github.com/iamgenesisivan' },
+        { icon: '💼', label: 'LinkedIn', value: 'linkedin.com/in/iamgenesisivan-public', href: 'https://linkedin.com/in/iamgenesisivan-public' },
         { icon: '📍', label: 'Location', value: 'Pasig, Metro Manila · Open to Remote', href: '#' },
       ],
     }
