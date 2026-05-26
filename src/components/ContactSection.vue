@@ -3,7 +3,7 @@
     <!-- 20% | 60% | 20% -->
     <div class="w-full px-6 lg:px-0">
       <div class="w-full lg:w-[80%] mx-auto">
-        
+
         <!-- Header -->
         <div class="text-center mb-16">
           <p class="font-mono text-accent text-xs tracking-[0.3em] uppercase mb-4">
@@ -99,107 +99,153 @@
                 </p>
               </div>
 
+              <!-- Success banner -->
+              <transition name="fade">
+                <div
+                  v-if="submitted"
+                  class="mb-6 flex items-center gap-3 rounded-xl border border-green-500/30 bg-green-500/10 px-4 py-3 text-sm text-green-400"
+                >
+                  <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  Message sent successfully! I'll get back to you within 24 hours.
+                </div>
+              </transition>
+
               <!-- 2 column -->
               <div class="grid md:grid-cols-2 gap-4 mb-4">
 
                 <!-- Name -->
                 <div>
                   <label class="block text-xs text-zinc-500 uppercase tracking-wider mb-2">
-                    Name
+                    Name <span class="text-accent">*</span>
                   </label>
 
                   <input
                     v-model="form.name"
                     type="text"
                     placeholder="John Doe"
-                    class="w-full rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-white placeholder:text-zinc-600 outline-none focus:border-accent/60 transition-all"
+                    @blur="touch('name')"
+                    class="w-full rounded-xl border bg-black/20 px-4 py-3 text-sm text-white placeholder:text-zinc-600 outline-none transition-all"
+                    :class="fieldClass('name')"
                   />
+
+                  <p v-if="errors.name" class="mt-1.5 text-xs text-red-400 flex items-center gap-1">
+                    <svg class="w-3 h-3 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M18 10A8 8 0 11 2 10a8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                    </svg>
+                    {{ errors.name }}
+                  </p>
                 </div>
 
                 <!-- Email -->
                 <div>
                   <label class="block text-xs text-zinc-500 uppercase tracking-wider mb-2">
-                    Email
+                    Email <span class="text-accent">*</span>
                   </label>
 
                   <input
                     v-model="form.email"
                     type="email"
                     placeholder="john@company.com"
-                    class="w-full rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-white placeholder:text-zinc-600 outline-none focus:border-accent/60 transition-all"
+                    @blur="touch('email')"
+                    class="w-full rounded-xl border bg-black/20 px-4 py-3 text-sm text-white placeholder:text-zinc-600 outline-none transition-all"
+                    :class="fieldClass('email')"
                   />
+
+                  <p v-if="errors.email" class="mt-1.5 text-xs text-red-400 flex items-center gap-1">
+                    <svg class="w-3 h-3 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M18 10A8 8 0 11 2 10a8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                    </svg>
+                    {{ errors.email }}
+                  </p>
                 </div>
               </div>
 
               <!-- inquiry -->
               <div class="mb-4">
                 <label class="block text-xs text-zinc-500 uppercase tracking-wider mb-2">
-                  Inquiry Type
+                  Inquiry Type <span class="text-accent">*</span>
                 </label>
 
                 <select
                   v-model="form.type"
-                  class="w-full rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-white outline-none focus:border-accent/60 transition-all"
+                  @blur="touch('type')"
+                  class="w-full rounded-xl border bg-black/20 px-4 py-3 text-sm text-white outline-none transition-all"
+                  :class="fieldClass('type')"
                 >
-                  <option value="" class="bg-zinc-900">
-                    Select inquiry
-                  </option>
-
-                  <option class="bg-zinc-900">
-                    Full-time / Senior Role
-                  </option>
-
-                  <option class="bg-zinc-900">
-                    Freelance Project
-                  </option>
-
-                  <option class="bg-zinc-900">
-                    Architecture Consultation
-                  </option>
-
-                  <option class="bg-zinc-900">
-                    Side Project / Collaboration
-                  </option>
-
-                  <option class="bg-zinc-900">
-                    Just saying hi
-                  </option>
+                  <option value="" class="bg-zinc-900">Select inquiry</option>
+                  <option class="bg-zinc-900">Full-time / Senior Role</option>
+                  <option class="bg-zinc-900">Freelance Project</option>
+                  <option class="bg-zinc-900">Architecture Consultation</option>
+                  <option class="bg-zinc-900">Side Project / Collaboration</option>
+                  <option class="bg-zinc-900">Just saying hi</option>
                 </select>
+
+                <p v-if="errors.type" class="mt-1.5 text-xs text-red-400 flex items-center gap-1">
+                  <svg class="w-3 h-3 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M18 10A8 8 0 11 2 10a8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                  </svg>
+                  {{ errors.type }}
+                </p>
               </div>
 
               <!-- message -->
               <div class="mb-6">
                 <label class="block text-xs text-zinc-500 uppercase tracking-wider mb-2">
-                  Message
+                  Message <span class="text-accent">*</span>
+                  <span class="ml-auto float-right normal-case tracking-normal font-normal"
+                    :class="form.message.length > 1000 ? 'text-red-400' : 'text-zinc-600'">
+                    {{ form.message.length }}/1000
+                  </span>
                 </label>
 
                 <textarea
                   v-model="form.message"
                   rows="4"
                   placeholder="Tell me about your project..."
-                  class="w-full resize-none rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-white placeholder:text-zinc-600 outline-none focus:border-accent/60 transition-all"
+                  @blur="touch('message')"
+                  class="w-full resize-none rounded-xl border bg-black/20 px-4 py-3 text-sm text-white placeholder:text-zinc-600 outline-none transition-all"
+                  :class="fieldClass('message')"
                 />
+
+                <p v-if="errors.message" class="mt-1.5 text-xs text-red-400 flex items-center gap-1">
+                  <svg class="w-3 h-3 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M18 10A8 8 0 11 2 10a8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                  </svg>
+                  {{ errors.message }}
+                </p>
               </div>
 
               <!-- button -->
               <button
                 @click="handleSubmit"
-                class="group w-full rounded-xl bg-accent hover:opacity-90 text-white py-3 text-sm font-medium transition-all duration-300 flex items-center justify-center gap-2"
+                :disabled="loading"
+                class="group w-full rounded-xl bg-accent text-white py-3 text-sm font-medium transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
+                :class="{ 'hover:opacity-90': !loading }"
               >
-                <span>Send Message</span>
+                <template v-if="loading">
+                  <!-- Spinner -->
+                  <svg class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
+                  </svg>
+                  <span>Sending...</span>
+                </template>
 
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="15"
-                  height="15"
-                  fill="currentColor"
-                  viewBox="0 0 16 16"
-                  class="transition-transform duration-300 group-hover:translate-x-1"
-                >
-                  <path
-                    d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11z"
-                  />
-                </svg>
+                <template v-else>
+                  <span>Send Message</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="15"
+                    height="15"
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                    class="transition-transform duration-300 group-hover:translate-x-1"
+                  >
+                    <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11z"/>
+                  </svg>
+                </template>
               </button>
 
             </div>
@@ -209,6 +255,7 @@
     </div>
   </section>
 </template>
+
 <script>
 export default {
   name: 'ContactSection',
@@ -225,11 +272,92 @@ export default {
         type: '',
         message: '',
       },
+      // tracks which fields the user has interacted with
+      touched: {
+        name: false,
+        email: false,
+        type: false,
+        message: false,
+      },
+      loading: false,
+      submitted: false,
     }
   },
+  computed: {
+    errors() {
+      const e = {}
+
+      if (this.touched.name) {
+        if (!this.form.name.trim()) {
+          e.name = 'Name is required.'
+        } else if (this.form.name.trim().length < 2) {
+          e.name = 'Name must be at least 2 characters.'
+        }
+      }
+
+      if (this.touched.email) {
+        if (!this.form.email.trim()) {
+          e.email = 'Email is required.'
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.form.email)) {
+          e.email = 'Please enter a valid email address.'
+        }
+      }
+
+      if (this.touched.type) {
+        if (!this.form.type) {
+          e.type = 'Please select an inquiry type.'
+        }
+      }
+
+      if (this.touched.message) {
+        if (!this.form.message.trim()) {
+          e.message = 'Message is required.'
+        } else if (this.form.message.trim().length < 10) {
+          e.message = 'Message must be at least 10 characters.'
+        } else if (this.form.message.length > 1000) {
+          e.message = 'Message must not exceed 1000 characters.'
+        }
+      }
+
+      return e
+    },
+
+    isValid() {
+      return (
+        this.form.name.trim().length >= 2 &&
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.form.email) &&
+        !!this.form.type &&
+        this.form.message.trim().length >= 10 &&
+        this.form.message.length <= 1000
+      )
+    },
+  },
   methods: {
+    touch(field) {
+      this.touched[field] = true
+    },
+
+    touchAll() {
+      Object.keys(this.touched).forEach((k) => (this.touched[k] = true))
+    },
+
+    fieldClass(field) {
+      if (!this.touched[field]) return 'border-white/10 focus:border-accent/60'
+      if (this.errors[field]) return 'border-red-500/60 focus:border-red-500/80'
+      return 'border-green-500/40 focus:border-green-500/60'
+    },
+
     async handleSubmit() {
-      let webhookURL = 'https://cloud.activepieces.com/api/v1/webhooks/OtkLulQOa8zthoOowETgv'
+      // mark all fields touched to show errors
+      this.touchAll()
+
+      if (!this.isValid) return
+
+      this.loading = true
+      this.submitted = false
+
+      const webhookURL = 'https://cloud.activepieces.com/api/v1/webhooks/OtkLulQOa8zthoOowETgv'
+
       try {
         const response = await fetch(webhookURL, {
           method: 'POST',
@@ -241,28 +369,37 @@ export default {
         })
 
         const data = await response.json()
-        console.log('Response:', data)
 
         if (!response.ok) {
-          throw new Error(data.message || 'Something went wrong')
+          throw new Error(data.message || 'Something went wrong. Please try again.')
         }
 
-        console.log('Success:', data)
+        // reset
+        this.form = { name: '', email: '', type: '', message: '' }
+        this.touched = { name: false, email: false, type: false, message: false }
+        this.submitted = true
 
-        // reset form
-        this.form = {
-          name: '',
-          email: '',
-          type: '',
-          message: '',
-        }
-
-        alert('Message sent successfully!')
+        // hide success banner after 6s
+        setTimeout(() => { this.submitted = false }, 6000)
       } catch (error) {
         console.error(error)
         alert(error.message)
+      } finally {
+        this.loading = false
       }
     },
   },
 }
 </script>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+</style>
