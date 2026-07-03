@@ -3,7 +3,7 @@
     <div class="section-container">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
         <div class="text-center sm:text-left">
-          <div class="font-display font-700 text-white">Genesis Ivan Aquino</div>
+          <div class="font-display font-700 text-white">Genesis Ivan Aquino - Pogi</div>
           <div class="text-muted text-xs mt-0.5">Senior Software Developer</div>
         </div>
         <div class="text-muted text-sm font-mono text-center italic">
