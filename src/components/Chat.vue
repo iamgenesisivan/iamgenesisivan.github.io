@@ -27,7 +27,7 @@
         <div class="gc-header">
           <div class="gc-header__avatar">G</div>
           <div class="gc-header__info">
-            <h2 class="gc-header__title">Genesis <span class="gc-header__accent">AI</span></h2>
+            <h2 class="gc-header__title">Genesis <span class="gc-header__accent">AI Assistant</span></h2>
             <p class="gc-header__subtitle">
               <span class="gc-header__dot"></span>
               Senior Software Developer
@@ -52,7 +52,7 @@
               </svg>
             </div>
             <p class="gc-welcome__heading">Hey there 👋</p>
-            <p class="gc-welcome__sub">I'm Genesis AI. Ask me about my projects, tech stack, services, or anything else.</p>
+            <p class="gc-welcome__sub">I'm Genesis AI Assistant. Ask me about my projects, tech stack, services, or anything else.</p>
             <div class="gc-welcome__chips">
               <button
                 v-for="chip in quickChips"
