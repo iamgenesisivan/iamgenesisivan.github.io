@@ -134,10 +134,10 @@ export default {
       sessionId: crypto.randomUUID(),
       messages: [],
       quickChips: [
-        "What's your tech stack?",
-        'Tell me about your projects',
-        'What services do you offer?',
-        'How can I contact you?',
+        "What's Genesis's tech stack?",
+        'Tell me about Genesis projects',
+        'What services does Genesis offer?',
+        'How can I contact Genesis?',
       ],
     }
   },
