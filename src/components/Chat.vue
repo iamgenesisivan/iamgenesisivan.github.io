@@ -55,7 +55,7 @@
             <p class="gc-welcome__sub">I'm Genesis AI Assistant. Ask me about my projects, tech stack, services, or anything else.</p>
             <div class="gc-welcome__chips">
               <button
-                v-for="chip in quickChips"
+                v-for="chip in displayedChips"
                 :key="chip"
                 class="gc-chip"
                 @click="sendQuick(chip)"
@@ -133,11 +133,18 @@ export default {
       isTyping: false,
       sessionId: crypto.randomUUID(),
       messages: [],
-      quickChips: [
+      displayedChips: [],
+      allQuickChips: [
         "What's Genesis's tech stack?",
         'Tell me about Genesis projects',
         'What services does Genesis offer?',
         'How can I contact Genesis?',
+        'Does Genesis have AI experience?',
+        'What certifications does Genesis have?',
+        'Has Genesis received any awards?',
+        'What is Genesis currently working on?',
+        'What does Genesis do outside of work?',
+        'Where is Genesis located?',
       ],
     }
   },
@@ -145,6 +152,7 @@ export default {
   watch: {
     isOpen(val) {
       if (val) {
+        this.getRandomChips()
         this.$nextTick(() => {
           this.$refs.inputEl && this.$refs.inputEl.focus()
         })
@@ -153,6 +161,11 @@ export default {
   },
 
   methods: {
+    getRandomChips() {
+      const shuffled = [...this.allQuickChips].sort(() => Math.random() - 0.5)
+      this.displayedChips = shuffled.slice(0, 4)
+    },
+
     scrollToBottom() {
       this.$nextTick(() => {
         const el = this.$refs.messagesEl
