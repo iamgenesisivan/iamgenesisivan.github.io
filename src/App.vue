@@ -8,12 +8,14 @@
       <ProjectsSection />
       <ExperienceSection />
       <ContactSection />
+      <Chat />
     </main>
     <FooterSection />
   </div>
 </template>
 
 <script>
+import Chat from './components/Chat.vue'
 import NavBar from './components/NavBar.vue'
 import HeroSection from './components/HeroSection.vue'
 import AboutSection from './components/AboutSection.vue'
@@ -26,6 +28,7 @@ import FooterSection from './components/FooterSection.vue'
 export default {
   name: 'App',
   components: {
+    Chat,
     NavBar, HeroSection, AboutSection, SkillsSection,
     ProjectsSection, ExperienceSection, ContactSection, FooterSection,
   },
