@@ -356,7 +356,7 @@ export default {
       this.loading = true
       this.submitted = false
 
-      const webhookURL = 'https://gen.rps-home-lab.com/webhook-test/4852f692-4a33-4949-ad57-e2077b77e947'
+      const webhookURL = 'https://gen.rps-home-lab.com/webhook/4852f692-4a33-4949-ad57-e2077b77e947'
 
       try {
         const response = await fetch(webhookURL, {
